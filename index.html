@@ -10,7 +10,7 @@
 
 <body>
     <h1>꽃 구별하기</h1>
-    <b1>이 꽃은 무슨 꽃일까요? 꽃사진을 업로드하여 알아보아요!</b1>
+    <p>이 꽃은 무슨 꽃일까요? 꽃사진을 업로드하여 알아보아요!</p>
     <h4>*데이지, 민들레, 해바라기, 장미, 튤립, 모란, 베르가못, 버터컵 중 한 개로 선택해주세요!</h4>
     <button type="button" onclick="init()">Start</button>
     <button type="button" onclick="predict()">Predict</button>
@@ -75,35 +75,35 @@
             // predict can take in an image, video or canvas html element
             var image = document.getElementById("my-image")
             const prediction = await model.predict(image, false);
-            if(prediction[0].probability > 0.7) {
+            if (prediction[0].probability > 0.7) {
                 labelContainer.childNodes[0].innerHTML = "이 꽃은 데이지입니다. "
                 labelContainer.childNodes[1].innerHTML = "데이지 (Daisy, Bellis perennis)는 쌍떡잎식물 국화목 국화과의 여러해살이풀이고, 꽃말은 사랑스러움, 숨겨진 사랑, 겸손한 아름다움 등이 있습니다. "
             }
-            else if(prediction[1].probability > 0.7) {
+            else if (prediction[1].probability > 0.7) {
                 labelContainer.childNodes[0].innerHTML = "이 꽃은 민들레입니다. "
                 labelContainer.childNodes[1].innerHTML = "민들레는 한국·중국·일본 등지에 분포하는 여러해살이풀으로, 꽃말은 감사하는 마음, 내 사랑 그대에게 드려요 등이 있습니다. "
             }
-            else if(prediction[2].probability > 0.7) {
+            else if (prediction[2].probability > 0.7) {
                 labelContainer.childNodes[0].innerHTML = "이 꽃은 해바라기입니다. "
                 labelContainer.childNodes[1].innerHTML = "해바라기는 중앙아메리카가 원산지인 한해살이풀로, 해를 닮은 노란 꽃이 상당히 인상적인 식물입니다. 해바라기의 꽃말은 불멸과 장수, 기쁨과 행복 등이 있습니다."
             }
-            else if(prediction[3].probability > 0.7) {
+            else if (prediction[3].probability > 0.7) {
                 labelContainer.childNodes[0].innerHTML = "이 꽃은 장미입니다. "
                 labelContainer.childNodes[1].innerHTML = "장미(薔薇, 영어: Rose)는 장미과 장미속(薔薇屬, 학명: Rosa 로사[*])에 속하는 관목의 총칭으로, 꽃말은 정열적인 사랑, 아름다움, 기쁨 등이 있습니다. "
             }
-            else if(prediction[4].probability > 0.7) {
+            else if (prediction[4].probability > 0.7) {
                 labelContainer.childNodes[0].innerHTML = "이 꽃은 튤립입니다. "
                 labelContainer.childNodes[1].innerHTML = "튤립(Tulip, 문화어: 튜리프)은 백합과의 여러해살이풀로 산자고속 식물의 총칭으로, 꽃말은 사랑의 고백, 영원한 애정, 매혹, 경솔 등이 있습니다. "
             }
-            else if(prediction[5].probability > 0.7) {
+            else if (prediction[5].probability > 0.7) {
                 labelContainer.childNodes[0].innerHTML = "이 꽃은 베르가못입니다. "
                 labelContainer.childNodes[1].innerHTML = "베르가못(영어: bergamot)은 운향과의 과일 나무(상록 교목)로, 꽃말은 감수성이 풍부함 등이 있습니다."
             }
-            else if(prediction[6].probability > 0.7) {
+            else if (prediction[6].probability > 0.7) {
                 labelContainer.childNodes[0].innerHTML = "이 꽃은 모란입니다. "
                 labelContainer.childNodes[1].innerHTML = "모란(牡丹, Paeonia suffruticosa, 영어: Chinese mudan)은 작약과의 잎지는 떨기나무로, 꽃말은 부귀, 영화, 행복한 결혼 등이 있습니다. "
             }
-            else if(prediction[7].probability > 0.7) {
+            else if (prediction[7].probability > 0.7) {
                 labelContainer.childNodes[0].innerHTML = "이 꽃은 버터컵(미나리아재비)입니다. "
                 labelContainer.childNodes[1].innerHTML = "버터컵은 동그랗고 노란 꽃으로, 꽃말은 천진난만함 등이 있습니다."
             }
