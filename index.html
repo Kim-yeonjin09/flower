@@ -10,7 +10,8 @@
 
 <body>
     <h1>꽃 구별하기</h1>
-    <b1>이 꽃은 무슨 꽃일까요? 카메라에 꽃을 비추거나 사진을 업로드하여 알아보아요!</b1>
+    <b1>이 꽃은 무슨 꽃일까요? 꽃사진을 업로드하여 알아보아요!</b1>
+    <h6>*데이지, 민들레, 해바라기, 장미, 튤립, 모란, 베르가못, 버터컵 중 한 개로 선택해주세요!</h6>
     <div>Teachable Machine Image Model</div>
     <button type="button" onclick="init()">Start</button>
     <button type="button" onclick="predict()">Predict</button>
@@ -57,25 +58,26 @@
             maxPredictions = model.getTotalClasses();
 
             // Convenience function to setup a webcam
-            const flip = true; // whether to flip the webcam
-            webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
-            await webcam.setup(); // request access to the webcam
-            await webcam.play();
-            window.requestAnimationFrame(loop);
+
+            //코드 const flip = true; // whether to flip the webcam
+            //webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+            //await webcam.setup(); // request access to the webcam
+            //await webcam.play();
+            //window.requestAnimationFrame(loop);
 
             // append elements to the DOM
-            document.getElementById("webcam-container").appendChild(webcam.canvas);
+            //코드 document.getElementById("webcam-container").appendChild(webcam.canvas);
             labelContainer = document.getElementById("label-container");
             for (let i = 0; i < maxPredictions; i++) { // and class labels
                 labelContainer.appendChild(document.createElement("div"));
             }
         }
 
-        async function loop() {
-            webcam.update(); // update the webcam frame
-            await predict();
-            window.requestAnimationFrame(loop);
-        }
+        //코드 async function loop() {
+            //webcam.update(); // update the webcam frame
+            //await predict();
+            //window.requestAnimationFrame(loop);
+        //}
 
         // run the webcam image through the image model
         async function predict() {
@@ -95,12 +97,12 @@
                 labelContainer.childNodes[0].innerHTML = "이 꽃은 해바라기입니다. "
                 labelContainer.childNodes[1].innerHTML = "해바라기는 중앙아메리카가 원산지인 한해살이풀로, 해를 닮은 노란 꽃이 상당히 인상적인 식물입니다. 해바라기의 꽃말은  "
             }
-            const prediction = await model.predict(webcam.canvas);
-            for (let i = 0; i < maxPredictions; i++) {
-                const classPrediction =
-                    prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-                labelContainer.childNodes[i].innerHTML = classPrediction;
-            }
+            //코드 const prediction = await model.predict(webcam.canvas);
+            //for (let i = 0; i < maxPredictions; i++) {
+                //const classPrediction =
+                    //prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+                //labelContainer.childNodes[i].innerHTML = classPrediction;
+            //}
         }
     </script>
     <script>function readURL(input) {
